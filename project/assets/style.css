@@ -1,0 +1,97 @@
+/* assets/style.css
+   Professional dark theme with blue accents for the satellite detection
+   dashboard. Loaded once from app.py via st.markdown(unsafe_allow_html=True).
+*/
+
+:root {
+    --accent: #3B82F6;
+    --accent-soft: rgba(59, 130, 246, 0.12);
+    --bg-card: #161B22;
+    --border: #262C36;
+    --text-muted: #9CA3AF;
+}
+
+/* Metric / KPI cards */
+.metric-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-align: center;
+    transition: border-color 0.15s ease;
+}
+.metric-card:hover { border-color: var(--accent); }
+.metric-card .metric-label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+}
+.metric-card .metric-value {
+    color: #F3F4F6;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+/* Section / content cards */
+.section-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+}
+
+.section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #E5E7EB;
+    margin-bottom: 4px;
+}
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 16px;
+}
+
+/* App title block */
+.app-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    background: linear-gradient(90deg, #60A5FA, #3B82F6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0px;
+}
+.app-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-top: -4px;
+    margin-bottom: 18px;
+}
+
+/* Workflow step pill */
+.workflow-step {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 14px 18px;
+    text-align: center;
+    color: #DBEAFE;
+    font-weight: 600;
+}
+.workflow-arrow {
+    text-align: center;
+    color: var(--accent);
+    font-size: 1.4rem;
+}
+
+/* Placeholder box for missing assets */
+.placeholder-box {
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    color: var(--text-muted);
+}

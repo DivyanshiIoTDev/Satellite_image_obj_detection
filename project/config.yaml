@@ -1,0 +1,96 @@
+# =============================================================================
+# config.yaml
+# Central configuration for paths, model metadata, and research comparison
+# values. Edit this file instead of touching application code.
+# =============================================================================
+
+# ---- Model weight locations -------------------------------------------------
+# Point these at your Google Drive (mounted) or local paths.
+# Example (Colab/Drive mount): "/content/drive/MyDrive/models/model1_wiener_yolo.pt"
+model_paths:
+  model_1: "models/model1_weiner_yolo.pt"        # Wiener Filter + YOLOv8
+  model_2: "models/model2_clahe_weiner_yolo.pt"  # CLAHE + Wiener Filter + YOLOv8
+
+# ---- Training output artifacts (per model) ----------------------------------
+training_outputs:
+  model_1:
+    confusion_matrix: "outputs/model_1/confusion_matrix.png"
+    pr_curve: "outputs/model_1/PR_curve.png"
+    results: "outputs/model_1/results.png"
+    f1_curve: "outputs/model_1/F1_curve.png"
+    p_curve: "outputs/model_1/P_curve.png"
+    r_curve: "outputs/model_1/R_curve.png"
+  model_2:
+    confusion_matrix: "outputs/model_2/confusion_matrix.png"
+    pr_curve: "outputs/model_2/PR_curve.png"
+    results: "outputs/model_2/results.png"
+    f1_curve: "outputs/model_2/F1_curve.png"
+    p_curve: "outputs/model_2/P_curve.png"
+    r_curve: "outputs/model_2/R_curve.png"
+
+# ---- Model metadata (Model Information page) ---------------------------------
+model_info:
+  model_1:
+    model_name: "Wiener-YOLOv8n"
+    dataset: "Low-SNR Satellite Imagery Dataset (custom)"
+    training_images: 1600
+    num_classes: 20
+    parameters: "3.2M"
+    model_size: "6.4 MB"
+    flops: "8.7 GFLOPs"
+    framework: "Ultralytics YOLOv8 (PyTorch)"
+    training_platform: "Google Colab (T4 GPU)"
+    inference_device: "CPU / GPU (auto)"
+    preprocessing_pipeline: "Wiener Filter -> YOLOv8"
+    deployment_framework: "Streamlit"
+  model_2:
+    model_name: "CLAHE-Wiener-YOLOv8n"
+    dataset: "Low-SNR Satellite Imagery Dataset (custom)"
+    training_images: 1600
+    num_classes: 20
+    parameters: "3.2M"
+    model_size: "6.4 MB"
+    flops: "8.7 GFLOPs"
+    framework: "Ultralytics YOLOv8 (PyTorch)"
+    training_platform: "Google Colab (T4 GPU)"
+    inference_device: "CPU / GPU (auto)"
+    preprocessing_pipeline: "CLAHE -> Wiener Filter -> YOLOv8"
+    deployment_framework: "Streamlit"
+
+# ---- Research comparison table (editable benchmark values) -------------------
+research_comparison:
+  - method: "Wiener + YOLOv8"
+    precision: 0.7559
+    recall: 0.6789
+    map50: 0.7324
+    map50_95: 0.4966
+   
+  - method: "CLAHE + Wiener + YOLOv8"
+    precision: 0.8342
+    recall: 0.6550
+    map50: 0.7392
+    map50_95: 0.5045
+ 
+
+# ---- Class names (edit to match your trained model) --------------------------
+class_names:
+  - "golffield"
+  - "Expressway-toll-station"
+  - "tenniscourt"
+  - "trainstation"
+  - "chimney"
+  - "storagetank"
+  - "ship"
+  - "harbor"
+  - "airplane"
+  - "groundtrackfield"
+  - "vehicle"
+  - "dam"
+  - "basketballcourt"
+  - "Expressway-Service-area"
+  - "stadium"
+  - "airport"
+  - "baseballfield"
+  - "bridge"
+  - "windmill"
+  - "overpass"
